@@ -9,8 +9,11 @@ pygame.init()
 DISPLAYSURF = pygame.display.set_mode((640,480))
 pygame.display.set_caption(WIDGETORAPPNAME)
 
-#functions go here
+# Functions go here below:
 def toggle_fullscreen():
+    # source: www.pygame.org - Function credits:
+    # Philhassey & Illume
+    # Added two lines to preserve the cursor shape as well. - Duoas
     screen = pygame.display.get_surface()
     tmp = screen.convert()
     caption = pygame.display.get_caption()

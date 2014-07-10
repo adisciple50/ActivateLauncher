@@ -6,7 +6,7 @@ clone, with extra features and
 different launcher shapes
 to avoid being sued
 
-Basicly its going to be an artistic spinoff of the windows 8 menu. starting with squares and rectangles,
+Basicaly its going to be an artistic spinoff of the windows 8 menu. starting with squares and rectangles,
 but with extra shapes coming later to avoid copyright infringement later on.
  
 nods to microsoft. well integrate hotmail AND google if you dont sue us. both can be enabled and disabled.
@@ -18,8 +18,7 @@ im doing one for the portfolio rather than for profit.
  
 i have no idea what the compiz fusion guys are doing right now but, integration would give some kickass gpu powered effects.
  
- 
-but
+please view below in raw text.. there is indentation and paragraphin left out. many thanks.
  
 __Design Principles__
 *design for touch, cause right click is a luxury.
@@ -41,4 +40,4 @@ L Widgets .. each one is (at the moment) going to be a standalone pygame package
 L Resources .. images and sounds for Activate.py that is not given from the user.
 		L ThemeInstructions.txt
 		L [ResourceFolder] (one folder for every theme.) theme instructions coming soon
-L Dev .. Dump of usefull scripts to help you develope apps.
+L Dev .. Dump of useful scripts to help you develope apps.

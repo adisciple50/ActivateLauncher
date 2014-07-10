@@ -71,12 +71,13 @@ def toggle_fullscreen():
         return PicturesFullPathList
 
     def set_backround_image(FullFilePath):
-
+        test = []
 
 
 
 
     def set_background():
+        test = []
 
 
 

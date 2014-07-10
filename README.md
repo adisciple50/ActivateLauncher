@@ -40,4 +40,5 @@ L Activate.Py .. this is the main lauuncher file, whos job it is to provide a un
 L Widgets .. each one is (at the moment) going to be a standalone pygame package to run on a shape in the launcher
 L Resources .. images and sounds for Activate.py that is not given from the user.
     L ThemeInstructions.txt
-    L [ResourceFolder] (one folder for every theme.) theme instructions coming soon 
+    L [ResourceFolder] (one folder for every theme.) theme instructions coming soon
+L Dev .. Dump of usefull scripts to help you develope apps.

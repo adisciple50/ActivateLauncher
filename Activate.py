@@ -1,6 +1,6 @@
 __author__ = 'Jason Crockett'
 
-import pygame,sys,os
+import pygame,sys,os,time
 from pygame.locals import *
 
 from os.path import expanduser
@@ -11,6 +11,8 @@ WIDGETORAPPNAME = "Activate Launcher"
 pygame.init()
 DISPLAYSURF = pygame.display.set_mode((640,480))
 pygame.display.set_caption(WIDGETORAPPNAME)
+
+import time
 
 # Functions go here below:
 def toggle_fullscreen():
@@ -39,47 +41,59 @@ def toggle_fullscreen():
 
     return screen # which is a pygame display
 
-    def get_background_images():
-        UserHome = str(os.expanduser("~")) # get user home folder
-        # ^ works on windows and mac too. prints with no "/" on the end
+def get_background_images():
+    UserHome = str(os.expanduser("~")) # get user home folder
+    # ^ works on windows and mac too. prints with no "/" on the end
 
-        try: #try and make a Pictures folder location string.
-            assert(UserHome is type(str()))
-            PicturesFolder = UserHome + "/Pictures" #is a string
-        except TypeError:
-            print("Userhome is not a string!")
+    try: #try and make a Pictures folder location string.
+        assert(UserHome is type(str()))
+        PicturesFolder = UserHome + "/Pictures" #is a string
+    except TypeError:
+        print("Userhome is not a string!")
 
-        PicturesFullPathList = []
+    PicturesFullPathList = []
 
-        try: # try to load images in the pictures folder string.
-            for file in os.listdir(PicturesFolder):
-                assert(file is type(str())) #file hopefully is a string
-                PicturesFullPath = PicturesFolder + file
-                PicturesFullPathList.append(PicturesFullPath)
-        except TypeError:
-            print("a filename in os.listdir is not a string, is it the actual file? ") # oh *uck it isnt.
-        """
-        #warning.. this code is ram hungry insanity mode
-        PygamePictureBinarys = []
+    try: # try to load images in the pictures folder string.
+        for file in os.listdir(PicturesFolder):
+            assert(file is type(str())) #file hopefully is a string
+            PicturesFullPath = PicturesFolder + file
+            PicturesFullPathList.append(PicturesFullPath)
+    except TypeError:
+        print("a filename in os.listdir is not a string, is it the actual file? ") # oh *uck it isnt.
+    """
+    #warning.. this code is ram hungry insanity mode
+    PygamePictureBinarys = []
 
-        for file in PicturesFullPathList:
-            PictureBinary = pygame.image.load(file)
-            PygamePictureBinarys.append(PictureBinary)
+    for file in PicturesFullPathList:
+        PictureBinary = pygame.image.load(file)
+        PygamePictureBinarys.append(PictureBinary)
 
-        return
-        """
-        return PicturesFullPathList
+    return
+    """
+    return PicturesFullPathList
 
-    def set_backround_image(FullFilePath):
-        test = []
+def countdown(count):
+    while (count >= 0):
+        print ('The count is: ', count)
+        count -= 1
+        time.sleep(1)
+
+def choose_background_image(FullFilePathList):
+    while event.type == QUIT:
+        for picture in FullFilePathList:
+            countdown(10)
+            return picture
+            continue
 
 
 
 
-    def set_background():
-        test = []
+def set_background(PickedBackground="./Resources/Default/Background.png"):
 
 
+
+PickedBackground = choose_background_image(get_background_images())
+# ^ Starts an infinate picture file rotation
 
 while True: # put game logic and functions in this loop
     for event in pygame.event.get():

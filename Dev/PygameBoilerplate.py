@@ -42,8 +42,12 @@ while True: # put game logic and functions in this loop
         if event.type == QUIT:
             pygame.QUIT
             sys.exit()
-        if event.type == KEYDOWN and event.key == K_F11: # problem lines
+        if event.type == KEYDOWN and event.key == K_F11: # The Keypress Boilerplate line! The Powah!
             toggle_fullscreen() # problem lines
+
+        #add extra events above.
+
+    #the leave the below lines alone
     screen = pygame.display.get_surface() # problem lines
     pygame.display.update()
     #pygame.display.flip() # possible extra needed.

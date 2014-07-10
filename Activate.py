@@ -9,7 +9,7 @@ from os.path import expanduser
 WIDGETORAPPNAME = "Activate Launcher"
 
 pygame.init()
-DISPLAYSURF = pygame.display.set_mode((640,480))
+DISPLAYSURF = pygame.display.set_mode((640,480)) # the default display, and root surface
 pygame.display.set_caption(WIDGETORAPPNAME)
 
 import time
@@ -42,13 +42,13 @@ def toggle_fullscreen():
     return screen # which is a pygame display
 
 def get_background_images():
-    UserHome = str(os.expanduser("~")) # get user home folder
+    UserHome = str(expanduser("~")) # get user home folder
     # ^ works on windows and mac too. prints with no "/" on the end
 
     try: #try and make a Pictures folder location string.
-        assert(UserHome is type(str()))
+        assert(isinstance(UserHome,str))
         PicturesFolder = UserHome + "/Pictures" #is a string
-    except TypeError:
+    except AssertionError:
         print("Userhome is not a string!")
 
     PicturesFullPathList = []
@@ -89,16 +89,22 @@ def choose_background_image(FullFilePathList):
 
 
 def set_background(PickedBackground="./Resources/Default/Background.png"):
+    if not PickedBackground:
+        Image = pygame.image.load("./Resources/Default/Background.png")
+    Image = pygame.image.load(PickedBackground)
+    DISPLAYSURF.blit(Image,(0,0)) #put image onscreen
+    # ^ at 0 horizontally and 0 vertically, down and right, from the top left corner.
+
 
 
 
 PickedBackground = choose_background_image(get_background_images())
-# ^ Starts an infinate picture file rotation
+# ^ Starts an infinite picture file rotation
 
 while True: # put game logic and functions in this loop
     for event in pygame.event.get():
         if event.type == QUIT:
-            pygame.QUIT
+            pygame.QUIT()
             sys.exit()
         if event.type == KEYDOWN and event.key == K_F11: # The Keypress Boilerplate line! The Powah!
             toggle_fullscreen() # problem lines
@@ -108,5 +114,5 @@ while True: # put game logic and functions in this loop
     #the leave the below lines alone
     screen = pygame.display.get_surface() # problem lines
     pygame.display.update()
-    #pygame.display.flip() # possible extra needed.
-
+    #pygame.display.flip() # possibly needed.
+    set_background(PickedBackground)

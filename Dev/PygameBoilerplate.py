@@ -40,7 +40,7 @@ def toggle_fullscreen():
 while True: # put game logic and functions in this loop
     for event in pygame.event.get():
         if event.type == QUIT:
-            pygame.QUIT
+            pygame.QUIT()
             sys.exit()
         if event.type == KEYDOWN and event.key == K_F11: # The Keypress Boilerplate line! The Powah!
             toggle_fullscreen() # problem lines

@@ -7,7 +7,7 @@
 sudo apt-get install gksu # expected behavior should ask the user to do what is needed
 
 cd ~
-gksu apt-get install mercurial
+sudo apt-get install -y mercurial
 hg clone https://bitbucket.org/pygame/pygame
 cd pygame
 
